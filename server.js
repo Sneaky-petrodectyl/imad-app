@@ -9,6 +9,18 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+app.get('/article-one', function (req, res) {
+   res.send("Article two requests will be served here");
+});
+
+app.get('/article-two', function (req, res) {
+   res.send("Article two requests will be served here");
+});
+
+app.get('/article-three', function (req, res) {
+  res.send("Article three requests will be served here");
+});
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
@@ -25,4 +37,3 @@ var port = 80;
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
- 
