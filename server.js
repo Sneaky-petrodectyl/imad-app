@@ -60,7 +60,7 @@ function createTemplate(data)
 {
     var title= data.title;
     var heading = data.heading;
-    var body =  data.heading;
+    var body =  data.body;
     var htmlTemplate=`
         <!DOCTYPE html>
         <html>
