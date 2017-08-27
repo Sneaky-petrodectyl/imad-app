@@ -19,4 +19,13 @@ body {
 .img-medium {
     height: 200px;
 }
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: Sans serif;
+    color: #1f1d1d;
+    padding-top: 101px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
 
