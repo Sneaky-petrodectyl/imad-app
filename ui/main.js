@@ -1,11 +1,20 @@
 var button = document.getElementById('counter');
-var counter = 0 ;
 
-button .onclick = function() {
-    //make a request
+button.onclick = function() {
+    //make a request object
     var request = new XMLHttpRequest();
-    
-    counter = counter + 1;
-    var span = document.getElementById('count');
-    span.innerHTML = counter.toString();
+    //capture request and store in a variable
+    request.onreadystatechange =function(){
+        if(request.readyState === XMLHttpRequest.DONE){
+            //take some action
+            if(request.status ===200 ){
+                var counter = request.responseText;
+                var span = document.getElementById('count');
+                span.innerHTML = counter.toString();
+            }
+        
+        }
+    };
+ //make a request
+  request.open('GET','http://nileshjha412.imad.hasura-app.io/counter',true);
 };
