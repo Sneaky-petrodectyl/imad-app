@@ -17,4 +17,5 @@ button.onclick = function() {
     };
  //make a request
   request.open('GET','http://nileshjha412.imad.hasura-app.io/counter',true);
+  request.send(null);
 };
