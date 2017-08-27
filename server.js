@@ -5,6 +5,84 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articles = {
+    articleOne:{
+        title : `Article One | Nilesh Jha`,
+        heading : `This is article one`,
+        body : `
+        <p>
+    			This is som rubbish content. This is som rubbish content. This is som rubbish content.This is som rubbish content.vThis is som rubbish content.vvvThis is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.
+    		</p>
+    		<p>
+    			This is som rubbish content. This is som rubbish content. This is som rubbish content.This is som rubbish content.vThis is som rubbish content.vvvThis is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.
+    		</p>
+    		<p>
+    			This is som rubbish content. This is som rubbish content. This is som rubbish content.This is som rubbish content.vThis is som rubbish content.vvvThis is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.
+    		</p>
+		</div>
+        `
+    },
+    articleTwo:{
+        title : `Article Two | Nilesh Jha`,
+        heading : `This is article Two`,
+        body : `
+        <p>
+    			This is som rubbish content. This is som rubbish content. This is som rubbish content.This is som rubbish content.vThis is som rubbish content.vvvThis is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.
+    		</p>
+    		<p>
+    			This is som rubbish content. This is som rubbish content. This is som rubbish content.This is som rubbish content.vThis is som rubbish content.vvvThis is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.
+    		</p>
+    		<p>
+    			This is som rubbish content. This is som rubbish content. This is som rubbish content.This is som rubbish content.vThis is som rubbish content.vvvThis is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.
+    		</p>
+		</div>
+        `
+    },
+    articleThree:{
+        title : `Article Three | Nilesh Jha`,
+        heading : `This is article Three`,
+        body : `
+        <p>
+    			This is som rubbish content. This is som rubbish content. This is som rubbish content.This is som rubbish content.vThis is som rubbish content.vvvThis is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.
+    		</p>
+    		<p>
+    			This is som rubbish content. This is som rubbish content. This is som rubbish content.This is som rubbish content.vThis is som rubbish content.vvvThis is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.
+    		</p>
+    		<p>
+    			This is som rubbish content. This is som rubbish content. This is som rubbish content.This is som rubbish content.vThis is som rubbish content.vvvThis is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.This is som rubbish content.
+    		</p>
+		</div>
+        `
+    }
+};
+
+function createTemplate(data)
+{
+    var title= data.title;
+    var heading = data.heading;
+    var body =  data.heading;
+    var htmlTemplate=`
+        <!DOCTYPE html>
+        <html>
+        	<head>
+        		<title>${title}</title>
+        		<link href="/ui/style.css" rel="stylesheet" />
+        	</head>
+        	<body>
+        	    <div class = 'container'>
+            		<div>
+            		 <a href="/">Home</a>   
+            		</div>
+            		<h1>
+            		    ${heading}
+            		</h1>
+            		<div>   ${body}</div>
+        		</div>
+        	</body>
+        </html>
+        `
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
