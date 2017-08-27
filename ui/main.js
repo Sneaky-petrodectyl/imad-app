@@ -3,6 +3,11 @@ alert ('This is a alrt box');
 var element = document.getElementById('main-text');
 element.innerHTML='new value';
 var img = document.getElementById('madi');
+function moveRight(){
+var marginLeft;
+marginLeft= marginLeft+'10px';
+}
 img.onclick = function(){
-    img.style.marginLeft = '100px';
+    var interval = setInterval(moveRight,100);
+    
 };
