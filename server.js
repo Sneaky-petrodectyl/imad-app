@@ -103,7 +103,7 @@ app.get('/submit-name', function(req, res){
     var name = req.params.name;
     names.push(name);
     res.send(JSON.stringify(names));
-}
+};
 
 
 var counter = 0;
