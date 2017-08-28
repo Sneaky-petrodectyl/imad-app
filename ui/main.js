@@ -25,13 +25,22 @@ var nameInput = document.getElementById('name');
 var name = nameInput.value;
 var submit = document.getElementById('submit_btn');
 submit.onclick = function(){
-    //make a reqquest to the server and capture a name
-    //capture a list of names and render it
-    var names = ['name1','name2','name3','name4'];
-    var list = '';
-    for(var i=0;i<names.length;i++){
-        list +='<li>' + names[i] ;
-    }
-    var ul = document.getElementById('nameslist');
-    ul.innerHTML = list;
+    var request = new XMLHttpRequest();
+    request.onreadystatechange =function(){
+        if(request.readyState === XMLHttpRequest.DONE){
+            //take some action
+            if(request.status ===200 ){
+                var names = request.responseText;
+                names = JSON.parse(names);
+                for(var i=0;i<names.length;i++){
+                    list +='<li>' + names[i] ;
+                }
+                var ul = document.getElementById('nameslist');
+                ul.innerHTML = list;
+            }
+        }
+    };
+    //make a request 
+    request.open('GET','http://nileshjha412.imad.hasura-app.io/submit-name/'+ name,true);
+    request.send(null);
 };
