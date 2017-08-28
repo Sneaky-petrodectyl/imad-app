@@ -88,8 +88,8 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-/* Using JSON
 var names = [];
+/* Using JSON
 app.get('/submit-name/:name', function(req, res){
    //Get the name from request
    var name = req.params.name;
