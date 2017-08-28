@@ -100,7 +100,7 @@ app.get('/submit-name/:name', function(req, res){
 
 //using Query parameter
 app.get('/submit-name', function(req, res){
-    var name = req.params.name;
+    var name = req.query.name;
     names.push(name);
     res.send(JSON.stringify(names));
 });
