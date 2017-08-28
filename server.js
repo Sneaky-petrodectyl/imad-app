@@ -88,6 +88,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+/* Using JSON
 var names = [];
 app.get('/submit-name/:name', function(req, res){
    //Get the name from request
@@ -95,8 +96,15 @@ app.get('/submit-name/:name', function(req, res){
    names.push(name);
    //JSON = javascript object notation
    res.send(JSON.stringify(names));
-   
-});
+});     */
+
+//using Query parameter
+app.get('/submit-name', function(req, res){
+    var name = req.params.name;
+    names.push(name);
+    res.send(JSON.stringify(names));
+}
+
 
 var counter = 0;
 app.get('/counter', function(req, res){
