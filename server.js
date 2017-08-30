@@ -125,7 +125,6 @@ app.get('/submit-name', function(req, res){
     res.send(JSON.stringify(names));
 });
 
-
 var counter = 0;
 app.get('/counter', function(req, res){
     counter = counter + 1;
@@ -134,7 +133,7 @@ app.get('/counter', function(req, res){
 
 app.get('/article/:articleName', function (req, res) {
   
-  pool.query("SELECT * FROM article where title = '" + req.params.articleName + "'", function(err,result){
+  pool.query("SELECT * FROM article where title = $1", [req.params.articleName], function(err,result){
       if(err){
         res.status(500).send(err.toString());
       }else{
