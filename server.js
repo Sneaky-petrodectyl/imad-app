@@ -2,8 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var pool = require('pg').pool;
-
-var coonfig = {
+var config = {
     user: 'nileshjha412',
     database: 'nileshjha412',
     host : 'db.imad.hasura-app.io/',
